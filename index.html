@@ -18,7 +18,7 @@ table tr td[data-rel='$'] {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 function appendText() {
-$.getJSON( "http://lda.data.parliament.uk/terms.json?attribute=Procedural+term&exists-attribute=true&_search=&_view=all&_pageSize=200&_page=0", function( data ) {
+$.getJSON( "https://lda.data.parliament.uk/terms.json?attribute=Procedural+term&exists-attribute=true&_search=&_view=all&_pageSize=200&_page=0", function( data ) {
 var bits = []
   $.each(data.result.items, function( i, item ) { 
 
