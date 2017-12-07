@@ -1,0 +1,44 @@
+<html>
+<head>
+<style>
+table, td{
+    border: 1px solid black;
+    font-family: sans-serif;
+ 	border-collapse: collapse;
+padding: 5px;
+}
+
+table tr td[data-rel='$'] {
+    background-color: #333;
+    color: white;
+}
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+function appendText() {
+$.getJSON( "http://lda.data.parliament.uk/terms.json?attribute=Procedural+term&exists-attribute=true&_search=&_view=all&_pageSize=200&_page=0", function( data ) {
+var bits = []
+  $.each(data.result.items, function( i, item ) { 
+
+    		bits.push( "<tr><td data-rel='$'>" + item.prefLabel._value + "</td><td>" + item.scopeNote + "</td></tr>" );
+  });
+$("<table>",{
+    "class": "my-new-list",
+    html: bits.join( "" )
+  }).appendTo( "body" );
+});
+     
+};
+
+appendText();
+
+</script>
+</head>
+<body>
+<h1 font-family="sans-serif">Procedural terms</h1>
+
+
+</body>
+</html>
